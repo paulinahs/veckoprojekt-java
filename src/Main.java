@@ -1,42 +1,65 @@
 public class Main {
+
     public static void main(String[] args) {
+
         System.out.println("=== Biblioteket öppnar ===");
+
         Bok hobbit = new Bok("Hobbit", "J.R.R. Tolkien", 310);
         Bok momo = new Bok("Momo", "Michael Ende", 250);
         Bok pippi = new Bok("Pippi Långstrump", "Astrid Lindgren", 160);
+
         Lantagare anna = new Lantagare("Anna");
         Lantagare omar = new Lantagare("Omar");
+
         System.out.println("Böcker i biblioteket: " + Bok.getAntal());
 
         System.out.println("=== " + anna.getNamn() + " lånar " + hobbit.getTitel() + " ===");
+
         boolean gick = hobbit.lanaUt();
+
         if (gick) {
             anna.lana();
         }
+
         System.out.println("Boken tar ungefär " + hobbit.lasminuter() + " minuter att läsa");
 
         System.out.println("=== " + omar.getNamn() + " vill också låna " + hobbit.getTitel() + " ===");
+
         gick = hobbit.lanaUt();
+
         if (gick) {
             omar.lana();
         }
 
         System.out.println("=== " + omar.getNamn() + " lånar " + pippi.getTitel() + " i stället ===");
+
         gick = pippi.lanaUt();
+
         if (gick) {
             omar.lana();
         }
 
         System.out.println("=== " + anna.getNamn() + " lämnar tillbaka " + hobbit.getTitel() + " ===");
+
         hobbit.lamnaTillbaka();
         anna.lamna();
 
+        // Egen scen
+        System.out.println("=== " + omar.getNamn() + " lämnar tillbaka " + pippi.getTitel() + " ===");
+
+        pippi.lamnaTillbaka();
+        omar.lamna();
+
         System.out.println("=== Biblioteket stänger ===");
+
         hobbit.visa();
         momo.visa();
         pippi.visa();
+
         anna.visa();
         omar.visa();
+
+        System.out.println("Antal låntagare: " + Lantagare.getAntalLantagare());
     }
 }
 

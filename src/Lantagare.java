@@ -1,10 +1,14 @@
 public class Lantagare {
+
     private String namn;
     private int antalLan;
+
+    private static int antalLantagare = 0;
 
     public Lantagare(String namn) {
         this.namn = namn;
         this.antalLan = 0;
+        antalLantagare++;
     }
 
     public String getNamn() {
@@ -13,6 +17,10 @@ public class Lantagare {
 
     public int getAntalLan() {
         return antalLan;
+    }
+
+    public static int getAntalLantagare() {
+        return antalLantagare;
     }
 
     public void visa() {
